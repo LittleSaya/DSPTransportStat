@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DSPTransportStat": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Program Files (x86)\\Steam\\steam.exe",
+      "commandLineArgs": "-applaunch 1366540 --doorstop-enable true --doorstop-target \"C:/Users/littlesaya/AppData/Roaming/Thunderstore Mod Manager/DataFolder/DysonSphereProgram/profiles/Default/BepInEx/core/BepInEx.Preloader.dll\""
+    }
+  }
+}
