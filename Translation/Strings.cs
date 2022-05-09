@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSPTransportStat.Global
+namespace DSPTransportStat.Translation
 {
-    static class Translations
+    static class Strings
     {
+        static public Language Language { get => language; }
+
         static private Language language = Language.enUS;
 
         static public void InitializeTranslations (Language lang)

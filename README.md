@@ -14,11 +14,15 @@ Great thanks to authors of LSTM and Unity Explorer.
 
 - Causing null pointer exception when used with LSTM.
 
-# Roadmap
+# Todo List
 
 - Add small bar graph to each item slot (just like those in station panel)
 
 # Change log
+
+## 0.0.5 -> 0.0.6
+
+- Add station count in title bar
 
 ## 0.0.4 -> 0.0.5
 
@@ -31,3 +35,7 @@ Great thanks to authors of LSTM and Unity Explorer.
 
 ## 0.0.1 -> 0.0.3
 - Change shortcut key from Ctrl+T to Ctrl+F to avoid conflict with LSTM's shortcut key.
+
+# Some personal notes
+
+不要把物品槽位写死成 item01 02 03 04 05 ，改成使用动态数组，减少代码冗余

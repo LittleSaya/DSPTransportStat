@@ -1,7 +1,7 @@
 {
   "name": "DSPTransportStat",
   "description": "DSP Transport Stat",
-  "version_number": "0.0.5",
+  "version_number": "0.0.6",
   "dependencies": [
     "xiaoye97-BepInEx-5.4.17"
   ],

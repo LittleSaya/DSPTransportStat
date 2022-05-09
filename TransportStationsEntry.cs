@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using DSPTransportStat.Extensions;
-using DSPTransportStat.Global;
+using DSPTransportStat.Translation;
 
 namespace DSPTransportStat
 {
@@ -136,22 +136,22 @@ namespace DSPTransportStat
             {
                 if (StationComponent.isStellar)
                 {
-                    StationType.text = Translations.Common.StationType.InterstellarCollector;
+                    StationType.text = Strings.Common.StationType.InterstellarCollector;
                 }
                 else
                 {
-                    StationType.text = Translations.Common.StationType.InPlanetCollector;
+                    StationType.text = Strings.Common.StationType.InPlanetCollector;
                 }
             }
             else
             {
                 if (StationComponent.isStellar)
                 {
-                    StationType.text = Translations.Common.StationType.Interstrllar;
+                    StationType.text = Strings.Common.StationType.Interstrllar;
                 }
                 else
                 {
-                    StationType.text = Translations.Common.StationType.InPlanet;
+                    StationType.text = Strings.Common.StationType.InPlanet;
                 }
             }
 
@@ -209,7 +209,7 @@ namespace DSPTransportStat
                 int totalOrder = stationStore.totalOrdered;
                 if (totalOrder == 0)
                 {
-                    Item01OrderAmount.text = Translations.Common.NoOrder;
+                    Item01OrderAmount.text = Strings.Common.NoOrder;
                     Item01OrderAmount.color = Color.white;
                     Item01OrderAmount.material = ResourceCache.MaterialDefaultUIMaterial;
                 }
@@ -267,7 +267,7 @@ namespace DSPTransportStat
                 int totalOrder = stationStore.totalOrdered;
                 if (totalOrder == 0)
                 {
-                    Item02OrderAmount.text = Translations.Common.NoOrder;
+                    Item02OrderAmount.text = Strings.Common.NoOrder;
                     Item02OrderAmount.color = Color.white;
                     Item02OrderAmount.material = ResourceCache.MaterialDefaultUIMaterial;
                 }
@@ -325,7 +325,7 @@ namespace DSPTransportStat
                 int totalOrder = stationStore.totalOrdered;
                 if (totalOrder == 0)
                 {
-                    Item03OrderAmount.text = Translations.Common.NoOrder;
+                    Item03OrderAmount.text = Strings.Common.NoOrder;
                     Item03OrderAmount.color = Color.white;
                     Item03OrderAmount.material = ResourceCache.MaterialDefaultUIMaterial;
                 }
@@ -383,7 +383,7 @@ namespace DSPTransportStat
                 int totalOrder = stationStore.totalOrdered;
                 if (totalOrder == 0)
                 {
-                    Item04OrderAmount.text = Translations.Common.NoOrder;
+                    Item04OrderAmount.text = Strings.Common.NoOrder;
                     Item04OrderAmount.color = Color.white;
                     Item04OrderAmount.material = ResourceCache.MaterialDefaultUIMaterial;
                 }
@@ -441,7 +441,7 @@ namespace DSPTransportStat
                 int totalOrder = stationStore.totalOrdered;
                 if (totalOrder == 0)
                 {
-                    Item05OrderAmount.text = Translations.Common.NoOrder;
+                    Item05OrderAmount.text = Strings.Common.NoOrder;
                     Item05OrderAmount.color = Color.white;
                     Item05OrderAmount.material = ResourceCache.MaterialDefaultUIMaterial;
                 }

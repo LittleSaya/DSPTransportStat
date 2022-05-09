@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 thunderstore/publish.zip
+thunderstore/*.dll
+thunderstore/README.md

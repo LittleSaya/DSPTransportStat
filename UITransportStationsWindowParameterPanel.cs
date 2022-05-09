@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DSPTransportStat.Extensions;
 using DSPTransportStat.Global;
+using DSPTransportStat.Translation;
 
 namespace DSPTransportStat
 {
@@ -74,7 +75,7 @@ namespace DSPTransportStat
             goToggleInPlanetLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goToggleInPlanetLabel_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goToggleInPlanetLabel_cmpText.font = ResourceCache.FontSAIRASB;
-            goToggleInPlanetLabel_cmpText.text = Translations.TransportStationsWindow.ParameterPanel.ToggleInPlanetLabel;
+            goToggleInPlanetLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ToggleInPlanetLabel;
 
             // 创建 toggle-in-planet
             GameObject goToggleInPlanet = Instantiate(NativeObjectCache.CheckBox, goTSWParamPanel.transform);
@@ -118,7 +119,7 @@ namespace DSPTransportStat
             goToggleInterstellarLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goToggleInterstellarLabel_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goToggleInterstellarLabel_cmpText.font = ResourceCache.FontSAIRASB;
-            goToggleInterstellarLabel_cmpText.text = Translations.TransportStationsWindow.ParameterPanel.ToggleInterstellarLabel;
+            goToggleInterstellarLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ToggleInterstellarLabel;
 
             // 创建 toggle-interstellar
             GameObject goToggleInterstellar = Instantiate(goToggleInPlanet, goTSWParamPanel.transform);
@@ -162,7 +163,7 @@ namespace DSPTransportStat
             goToggleCollectorLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goToggleCollectorLabel_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goToggleCollectorLabel_cmpText.font = ResourceCache.FontSAIRASB;
-            goToggleCollectorLabel_cmpText.text = Translations.TransportStationsWindow.ParameterPanel.ToggleCollectorLabel;
+            goToggleCollectorLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ToggleCollectorLabel;
 
             // 创建 toggle-collector
             GameObject goToggleCollector = Instantiate(goToggleInPlanet, goTSWParamPanel.transform);
@@ -206,7 +207,7 @@ namespace DSPTransportStat
             goItemFilterLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goItemFilterLabel_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goItemFilterLabel_cmpText.font = ResourceCache.FontSAIRASB;
-            goItemFilterLabel_cmpText.text = Translations.TransportStationsWindow.ParameterPanel.ItemFilterLabel;
+            goItemFilterLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ItemFilterLabel;
 
             // 创建 item-filter
             GameObject goItemFilter = Instantiate(ReassembledObjectCache.GOCircularItemFilterButton, goTSWParamPanel.transform);

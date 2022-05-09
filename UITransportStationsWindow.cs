@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DSPTransportStat.Extensions;
 using DSPTransportStat.Global;
+using DSPTransportStat.Translation;
 
 namespace DSPTransportStat
 {
@@ -44,6 +45,11 @@ namespace DSPTransportStat
         /// 参数面板组件，方便在查询参数发生变化时获取新的查询参数
         /// </summary>
         private UITransportStationsWindowParameterPanel uiTSWParameterPanel = null;
+
+        /// <summary>
+        /// 具有翻译功能的用于显示当前列表中站点数量的组件
+        /// </summary>
+        private UIStationCountInListTranslation uiStationCountInListTranslation = null;
 
         /// <summary>
         /// 物流运输站列表，包含 StationInfo 、 StarData 和 PlanetData
@@ -106,7 +112,7 @@ namespace DSPTransportStat
             // 修改标题
             Transform titleTextTransform = transportStationsWindowGO.transform.Find("panel-bg/title-text");
             Destroy(titleTextTransform.GetComponent<Localizer>());
-            titleTextTransform.GetComponent<Text>().text = Translations.TransportStationsWindow.Title;
+            titleTextTransform.GetComponent<Text>().text = Strings.TransportStationsWindow.Title;
 
             // 通过克隆的 statWindow 删除不需要的对象
             // 删除左侧菜单
@@ -345,7 +351,7 @@ namespace DSPTransportStat
 
             // 设置文本框属性
             Text transportStationsEntry_childItem01_childCurrentLabel_cmpText = transportStationsEntry_childItem01_childCurrentLabel.GetComponent<Text>();
-            transportStationsEntry_childItem01_childCurrentLabel_cmpText.text = Translations.TransportStationsWindow.CurrentLabel;
+            transportStationsEntry_childItem01_childCurrentLabel_cmpText.text = Strings.TransportStationsWindow.CurrentLabel;
 
             // 填充对组件的引用
             uiTSW.transportStationsEntries[0].Item01CurrentLabelGO = transportStationsEntry_childItem01_childCurrentLabel;
@@ -402,7 +408,7 @@ namespace DSPTransportStat
 
             // 设置文本框属性
             Text transportStationsEntry_childItem01_childMaxLabel_cmpText = transportStationsEntry_childItem01_childMaxLabel.GetComponent<Text>();
-            transportStationsEntry_childItem01_childMaxLabel_cmpText.text = Translations.TransportStationsWindow.MaxLabel;
+            transportStationsEntry_childItem01_childMaxLabel_cmpText.text = Strings.TransportStationsWindow.MaxLabel;
 
             // 填充对组件的引用
             uiTSW.transportStationsEntries[0].Item01MaxLabelGO = transportStationsEntry_childItem01_childMaxLabel;
@@ -667,7 +673,7 @@ namespace DSPTransportStat
             goHeaders_childLocationAndName_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goHeaders_childLocationAndName_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goHeaders_childLocationAndName_cmpText.font = ResourceCache.FontSAIRASB;
-            goHeaders_childLocationAndName_cmpText.text = Translations.TransportStationsWindow.LocationAndName;
+            goHeaders_childLocationAndName_cmpText.text = Strings.TransportStationsWindow.LocationAndName;
 
             // 创建 headers > location-and-name > sort
             GameObject goHeaders_childLocationAndName_childSort = Instantiate(ReassembledObjectCache.GOTextButton, goHeaders_childLocationAndName.transform);
@@ -685,7 +691,7 @@ namespace DSPTransportStat
             Text goHeaders_childLocationAndName_childSort_childButtonText_cmpText = goHeaders_childLocationAndName_childSort_childButtonText.GetComponent<Text>();
 
             // 默认的位置和名称顺序为升序
-            goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Translations.TransportStationsWindow.ASC;
+            goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Strings.TransportStationsWindow.ASC;
             uiTSW.locationAndNameSortOrder = SortOrder.ASC;
 
             goHeaders_childLocationAndName_childSort.GetComponent<Button>().onClick.AddListener(() =>
@@ -693,17 +699,17 @@ namespace DSPTransportStat
                 if (uiTSW.locationAndNameSortOrder == SortOrder.ASC)
                 {
                     uiTSW.locationAndNameSortOrder = SortOrder.DESC;
-                    goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Translations.TransportStationsWindow.DESC;
+                    goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Strings.TransportStationsWindow.DESC;
                 }
                 else if (uiTSW.locationAndNameSortOrder == SortOrder.DESC)
                 {
                     uiTSW.locationAndNameSortOrder = SortOrder.ASC;
-                    goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Translations.TransportStationsWindow.ASC;
+                    goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Strings.TransportStationsWindow.ASC;
                 }
                 else
                 {
                     uiTSW.locationAndNameSortOrder = SortOrder.ASC;
-                    goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Translations.TransportStationsWindow.ASC;
+                    goHeaders_childLocationAndName_childSort_childButtonText_cmpText.text = Strings.TransportStationsWindow.ASC;
                 }
                 uiTSW.OnSort();
             });
@@ -721,7 +727,7 @@ namespace DSPTransportStat
             goHeaders_childItemSlots_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goHeaders_childItemSlots_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goHeaders_childItemSlots_cmpText.font = ResourceCache.FontSAIRASB;
-            goHeaders_childItemSlots_cmpText.text = Translations.TransportStationsWindow.ItemSlots;
+            goHeaders_childItemSlots_cmpText.text = Strings.TransportStationsWindow.ItemSlots;
             goHeaders_childItemSlots_cmpText.alignment = TextAnchor.MiddleCenter;
 
             // 创建 headers > item-slots > sep-line-1 和 headers > item-slots > sep-line-0
@@ -783,7 +789,7 @@ namespace DSPTransportStat
             goPanelBg_childSearchLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
             goPanelBg_childSearchLabel_cmpText.verticalOverflow = VerticalWrapMode.Overflow;
             goPanelBg_childSearchLabel_cmpText.font = ResourceCache.FontSAIRASB;
-            goPanelBg_childSearchLabel_cmpText.text = Translations.TransportStationsWindow.SearchLabel;
+            goPanelBg_childSearchLabel_cmpText.text = Strings.TransportStationsWindow.SearchLabel;
 
             // 创建 panel-bg > search
             GameObject goPanelBg_childSearch = Instantiate(ReassembledObjectCache.GOInputField, goPanelBg.transform);
@@ -851,12 +857,26 @@ namespace DSPTransportStat
             goPanelBg_childSearchButton_cmpRectTransform.offsetMin = new Vector2(400, -37);
             goPanelBg_childSearchButton_cmpRectTransform.offsetMax = new Vector2(450, -12);
 
-            goPanelBg_childSearchButton.transform.Find("button-text").GetComponent<Text>().text = Translations.TransportStationsWindow.SearchButton;
+            goPanelBg_childSearchButton.transform.Find("button-text").GetComponent<Text>().text = Strings.TransportStationsWindow.SearchButton;
 
             goPanelBg_childSearchButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 // do nothing
             });
+
+            // 创建 panel-bg > station-count-in-list
+            GameObject goStationCountInList = UIStationCountInListTranslation.Create();
+            goStationCountInList.transform.SetParent(goPanelBg.transform);
+            goStationCountInList.name = "station-count-in-list";
+
+            RectTransform goStationCountInList_cmpRectTransform = goStationCountInList.GetComponent<RectTransform>();
+            goStationCountInList_cmpRectTransform.Zeroize();
+            goStationCountInList_cmpRectTransform.anchorMin = new Vector2(0, 1);
+            goStationCountInList_cmpRectTransform.anchorMax = new Vector2(0, 1);
+            goStationCountInList_cmpRectTransform.offsetMin = new Vector2(500, -40);
+            goStationCountInList_cmpRectTransform.offsetMax = new Vector2(700, -15);
+
+            uiTSW.uiStationCountInListTranslation = goStationCountInList.GetComponent<UIStationCountInListTranslation>();
 
             // ==========
             // UI组件创建完成（标题栏）
@@ -963,6 +983,9 @@ namespace DSPTransportStat
 
             // 重置滚动条
             contentRectTransform.offsetMax = new Vector2(0, 0);
+
+            // 设置列表中的站点数量
+            uiStationCountInListTranslation.SetNumber(stations.Count);
         }
 
         /// <summary>

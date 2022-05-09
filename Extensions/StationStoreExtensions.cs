@@ -1,4 +1,4 @@
-using DSPTransportStat.Global;
+using DSPTransportStat.Translation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +28,9 @@ namespace DSPTransportStat.Extensions
         {
             return stationStore.localLogic switch
             {
-                ELogisticStorage.None => Translations.Common.StationStoreLogic.InPlanetStorage,
-                ELogisticStorage.Supply => Translations.Common.StationStoreLogic.InPlanetSupply,
-                ELogisticStorage.Demand => Translations.Common.StationStoreLogic.InPlanetDemand,
+                ELogisticStorage.None => Strings.Common.StationStoreLogic.InPlanetStorage,
+                ELogisticStorage.Supply => Strings.Common.StationStoreLogic.InPlanetSupply,
+                ELogisticStorage.Demand => Strings.Common.StationStoreLogic.InPlanetDemand,
                 _ => "Undefined Local Logic (" + stationStore.localLogic.ToString() + ")",
             };
         }
@@ -39,9 +39,9 @@ namespace DSPTransportStat.Extensions
         {
             return stationStore.remoteLogic switch
             {
-                ELogisticStorage.None => Translations.Common.StationStoreLogic.InterstellarStorage,
-                ELogisticStorage.Supply => Translations.Common.StationStoreLogic.InterstellarSupply,
-                ELogisticStorage.Demand => Translations.Common.StationStoreLogic.InterstellarDemand,
+                ELogisticStorage.None => Strings.Common.StationStoreLogic.InterstellarStorage,
+                ELogisticStorage.Supply => Strings.Common.StationStoreLogic.InterstellarSupply,
+                ELogisticStorage.Demand => Strings.Common.StationStoreLogic.InterstellarDemand,
                 _ => "Undefined Remote Logic (" + stationStore.remoteLogic.ToString() + ")",
             };
         }

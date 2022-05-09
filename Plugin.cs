@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DSPTransportStat.CacheObjects;
-using DSPTransportStat.Global;
+using DSPTransportStat.Translation;
 
 namespace DSPTransportStat
 {
@@ -16,7 +16,7 @@ namespace DSPTransportStat
     {
         public const string __NAME__ = "DSPTransportStat";
         public const string __GUID__ = "IndexOutOfRange.DSPTransportStat";
-        public const string __VERSION__ = "0.0.5";
+        public const string __VERSION__ = "0.0.6";
 
         static public Plugin Instance { get; set; } = null;
 
@@ -96,7 +96,7 @@ namespace DSPTransportStat
                     {
                         Instance.Logger.LogError(missingInfo);
                     }
-                    Translations.InitializeTranslations(UIRoot.instance.optionWindow.GetTempOption().language);
+                    Strings.InitializeTranslations(UIRoot.instance.optionWindow.GetTempOption().language);
                     ReassembledObjectCache.InitializeReassembledObjectCache();
                     Instance.uiTransportStationsWindow = UITransportStationsWindow.Create();
                 }
