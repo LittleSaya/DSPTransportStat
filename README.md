@@ -11,11 +11,11 @@ Great thanks to authors of LSTM and Unity Explorer.
 - Filtering though station type, location, name and items.
 - Sorting by station location and name, ascending or descending.
 
-![Usage](https://github.com/LittleSaya/DSPTransportStat/blob/master/Doc/brief.jpg "Usage")
+![Usage](https://raw.githubusercontent.com/LittleSaya/DSPTransportStat/master/Doc/brief.jpg "Usage")
 
 ## Compatibility
 
-### 0.0.1 ~ 0.0.6
+### 0.0.1 ~ 0.0.7
 
 Game Version: Early Access 0.9.25.12077
 
@@ -34,6 +34,10 @@ Ideas are welcome :-)
 - ~~Add small bar graph to each item slot (just like those in station panel)~~(Replaced by a button which can open the station window)
 
 ## Change log
+
+### 0.0.6 -> 0.0.7
+
+- Fix image url in this README.md file.
 
 ### 0.0.5 -> 0.0.6
 
