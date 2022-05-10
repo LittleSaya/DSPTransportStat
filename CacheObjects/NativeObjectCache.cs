@@ -27,6 +27,10 @@ namespace DSPTransportStat.CacheObjects
 
         static public GameObject SepLine0 { get; set; } = null;
 
+        static public GameObject SortBtn { get; set; } = null;
+
+        static public GameObject CloseBtn { get; set; } = null;
+
         /// <summary>
         /// 初始化原生对象缓存
         /// </summary>
@@ -143,6 +147,24 @@ namespace DSPTransportStat.CacheObjects
             {
                 missingObjects = true;
                 missingInfoSB.Append("Can not find GameObject 'UI Root/Overlay Canvas/In Game/Windows/Statistics Window/product-bg/scroll-view/viewport/content/product-entry/sep-line-0' in scene 'DSPGame'");
+            }
+
+            // 找到 UI Root/Overlay Canvas/In Game/Windows/Player Inventory/panel-bg/btn-box/sort-btn
+            SortBtn = uiRoot.transform.Find("Overlay Canvas/In Game/Windows/Player Inventory/panel-bg/btn-box/sort-btn").gameObject;
+
+            if (SortBtn == null)
+            {
+                missingObjects = true;
+                missingInfoSB.Append("Can not find GameObject 'Root/Overlay Canvas/In Game/Windows/Player Inventory/panel-bg/btn-box/sort-btn' in scene 'DSPGame'");
+            }
+
+            // 找到 UI Root/Overlay Canvas/In Game/Windows/Player Inventory/panel-bg/btn-box/close-btn
+            CloseBtn = uiRoot.transform.Find("Overlay Canvas/In Game/Windows/Player Inventory/panel-bg/btn-box/close-btn").gameObject;
+
+            if (CloseBtn == null)
+            {
+                missingObjects = true;
+                missingInfoSB.Append("Can not find GameObject 'Root/Overlay Canvas/In Game/Windows/Player Inventory/panel-bg/btn-box/close-btn' in scene 'DSPGame'");
             }
 
             missingInfo = missingInfoSB.ToString();

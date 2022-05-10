@@ -109,15 +109,35 @@ namespace DSPTransportStat.Translation
                 };
             }
 
+            static public string ItemConfigPanel
+            {
+                get => language switch
+                {
+                    Language.enUS => "Config Panel",
+                    Language.zhCN => "配置面板",
+                    _ => "Config Panel"
+                };
+            }
+
+            static public string ItemHomePanel
+            {
+                get => language switch
+                {
+                    Language.enUS => "Home Panel",
+                    Language.zhCN => "主页",
+                    _ => "Home Panel"
+                };
+            }
+
             static public class ParameterPanel
             {
                 static public string ToggleInPlanetLabel
                 {
                     get => language switch
                     {
-                        Language.enUS => "In Planet",
+                        Language.enUS => "Planetary Station",
                         Language.zhCN => "行星物流站",
-                        _ => "In Planet"
+                        _ => "Planetary Station"
                     };
                 }
 
@@ -125,9 +145,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "Interstellar",
+                        Language.enUS => "Interstellar Station",
                         Language.zhCN => "星际物流站",
-                        _ => "Interstellar"
+                        _ => "Interstellar Station"
                     };
                 }
 
@@ -170,9 +190,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "In Planet",
+                        Language.enUS => "Planetary Station",
                         Language.zhCN => "行星物流站",
-                        _ => "In Planet"
+                        _ => "Planetary Station"
                     };
                 }
 
@@ -180,9 +200,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "In Planet Collector",
+                        Language.enUS => "Planetary Collector",
                         Language.zhCN => "行星采集站",
-                        _ => "In Planet Collector"
+                        _ => "Planetary Collector"
                     };
                 }
 
@@ -190,9 +210,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "Interstellar",
+                        Language.enUS => "Interstellar Station",
                         Language.zhCN => "星际物流站",
-                        _ => "Interstellar"
+                        _ => "Interstellar Station"
                     };
                 }
 
@@ -200,9 +220,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "Interstellar Collector",
-                        Language.zhCN => "星际采集站",
-                        _ => "Interstellar Collector"
+                        Language.enUS => "Orbital Collector",
+                        Language.zhCN => "轨道采集站",
+                        _ => "Orbital Collector"
                     };
                 }
             }
@@ -213,9 +233,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "In Planet Storage",
+                        Language.enUS => "Local Storage",
                         Language.zhCN => "本地仓储",
-                        _ => "In Planet Storage"
+                        _ => "Local Storage"
                     };
                 }
 
@@ -223,9 +243,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "In Planet Supply",
+                        Language.enUS => "Local Supply",
                         Language.zhCN => "本地供应",
-                        _ => "In Planet Supply"
+                        _ => "Local Supply"
                     };
                 }
 
@@ -233,18 +253,18 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "In Planet Demand",
+                        Language.enUS => "Local Demand",
                         Language.zhCN => "本地需求",
-                        _ => "In Planet Demand"
+                        _ => "Local Demand"
                     };
                 }
                 static public string InterstellarStorage
                 {
                     get => language switch
                     {
-                        Language.enUS => "Interstellar Storage",
+                        Language.enUS => "Remote Storage",
                         Language.zhCN => "星际仓储",
-                        _ => "Interstellar Storage"
+                        _ => "Remote Storage"
                     };
                 }
 
@@ -252,9 +272,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "Interstellar Supply",
+                        Language.enUS => "Remote Supply",
                         Language.zhCN => "星际供应",
-                        _ => "Interstellar Supply"
+                        _ => "Remote Supply"
                     };
                 }
 
@@ -262,9 +282,9 @@ namespace DSPTransportStat.Translation
                 {
                     get => language switch
                     {
-                        Language.enUS => "Interstellar Demand",
+                        Language.enUS => "Remote Demand",
                         Language.zhCN => "星际需求",
-                        _ => "Interstellar Demand"
+                        _ => "Remote Demand"
                     };
                 }
             }

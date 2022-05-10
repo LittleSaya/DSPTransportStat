@@ -16,7 +16,13 @@ namespace DSPTransportStat.CacheObjects
 
         static public Sprite SpriteRound256 = null;
 
-        static public Sprite Round54pxSlice = null;
+        static public Sprite SpriteRound54pxSlice = null;
+
+        static public Sprite SpriteRefreshIcon = null;
+
+        static public Sprite SpriteXIcon = null;
+
+        static public Sprite SpriteSignal504 = null;
 
         static public Material MaterialWidgetTextAlpha5x;
 
@@ -42,7 +48,19 @@ namespace DSPTransportStat.CacheObjects
                 }
                 else if (sprites[i].name == "round-54px-slice")
                 {
-                    Round54pxSlice = sprites[i];
+                    SpriteRound54pxSlice = sprites[i];
+                }
+                else if (sprites[i].name == "refresh-icon")
+                {
+                    SpriteRefreshIcon = sprites[i];
+                }
+                else if (sprites[i].name == "x-icon")
+                {
+                    SpriteXIcon = sprites[i];
+                }
+                else if (sprites[i].name == "signal-504")
+                {
+                    SpriteSignal504 = sprites[i];
                 }
             }
 

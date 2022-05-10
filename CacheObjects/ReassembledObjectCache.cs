@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static UIButton;
 using DSPTransportStat.Extensions;
 
 namespace DSPTransportStat.CacheObjects
@@ -53,7 +52,7 @@ namespace DSPTransportStat.CacheObjects
 
             // 调整 UIButton 组件对 bg (white) 对象中 Image 组件的渐变颜色控制
             UIButton GOCircularItemFilterButton_cmpUIButton = GOCircularItemFilterButton.GetComponent<UIButton>();
-            Transition GOCircularItemFilterButton_cmpUIButton_transitions0 = GOCircularItemFilterButton_cmpUIButton.transitions[0];
+            UIButton.Transition GOCircularItemFilterButton_cmpUIButton_transitions0 = GOCircularItemFilterButton_cmpUIButton.transitions[0];
             GOCircularItemFilterButton_cmpUIButton_transitions0.damp = 0.5f;
             GOCircularItemFilterButton_cmpUIButton_transitions0.disabledColor = new Color(0.4434f, 0.4434f, 0.4434f, 0.3f);
             GOCircularItemFilterButton_cmpUIButton_transitions0.mouseoverColor = new Color(0.4f, 0.4f, 0.4f, 0.5f);

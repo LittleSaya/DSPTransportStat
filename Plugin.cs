@@ -96,8 +96,9 @@ namespace DSPTransportStat
                     {
                         Instance.Logger.LogError(missingInfo);
                     }
-                    Strings.InitializeTranslations(UIRoot.instance.optionWindow.GetTempOption().language);
+                    Strings.InitializeTranslations(DSPGame.globalOption.language);
                     ReassembledObjectCache.InitializeReassembledObjectCache();
+                    NewObjectCache.InitializeNewObjectCache();
                     Instance.uiTransportStationsWindow = UITransportStationsWindow.Create();
                 }
             }

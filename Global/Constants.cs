@@ -22,5 +22,15 @@ namespace DSPTransportStat.Global
         /// 表示没有物品的物品ID
         /// </summary>
         public const int NONE_ITEM_ID = int.MinValue;
+
+        /// <summary>
+        /// 默认情况下，每一个站点列表项中有多少个物品槽位
+        /// </summary>
+        public const int TRANSPORT_STATIONS_ENTRY_DEFAULT_ITEM_SLOT_NUMBER = 5;
+
+        /// <summary>
+        /// 站点列表项中每一个槽位的宽度
+        /// </summary>
+        public const int TRANSPORT_STATIONS_ENTRY_ITEM_SLOT_WIDTH = 230;
     }
 }

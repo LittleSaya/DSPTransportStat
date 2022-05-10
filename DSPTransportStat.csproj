@@ -220,6 +220,10 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Doc\" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy &quot;$(TargetPath)&quot; &quot;C:\Users\littlesaya\AppData\Roaming\Thunderstore Mod Manager\DataFolder\DysonSphereProgram\profiles\Default\BepInEx\plugins\Unknown-DSPTransportStat&quot; /Y&#xD;&#xA;&#xD;&#xA;copy &quot;$(ProjectDir)README.md&quot; &quot;$(ProjectDir)thunderstore&quot;&#xD;&#xA;&#xD;&#xA;copy &quot;$(TargetPath)&quot; &quot;$(ProjectDir)thunderstore&quot; /Y&#xD;&#xA;&#xD;&#xA;if $(ConfigurationName) == Release (powershell Compress-Archive -Path '$(ProjectDir)thunderstore\$(TargetFileName)','$(ProjectDir)thunderstore\icon.png','$(ProjectDir)thunderstore\manifest.json','$(ProjectDir)thunderstore\README.md' -DestinationPath '$(ProjectDir)thunderstore\publish.zip' -Force)" />
   </Target>

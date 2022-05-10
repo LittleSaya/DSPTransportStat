@@ -26,28 +26,6 @@ namespace DSPTransportStat.Translation
 
         private bool plural;
 
-        private void Awake ()
-        {
-            Plugin.Instance.Logger.LogInfo($"{nameof(UIStationCountInListTranslation)} awake");
-            Plugin.Instance.Logger.LogInfo(TextBeforeNumberPosition == null);
-            Plugin.Instance.Logger.LogInfo(TextBeforeNumber == null);
-            Plugin.Instance.Logger.LogInfo(TextAfterNumberPosition == null);
-            Plugin.Instance.Logger.LogInfo(TextAfterNumber == null);
-            Plugin.Instance.Logger.LogInfo(NumberPosition == null);
-            Plugin.Instance.Logger.LogInfo(Number == null);
-        }
-
-        private void Start ()
-        {
-            Plugin.Instance.Logger.LogInfo($"{nameof(UIStationCountInListTranslation)} start");
-            Plugin.Instance.Logger.LogInfo(TextBeforeNumberPosition == null);
-            Plugin.Instance.Logger.LogInfo(TextBeforeNumber == null);
-            Plugin.Instance.Logger.LogInfo(TextAfterNumberPosition == null);
-            Plugin.Instance.Logger.LogInfo(TextAfterNumber == null);
-            Plugin.Instance.Logger.LogInfo(NumberPosition == null);
-            Plugin.Instance.Logger.LogInfo(Number == null);
-        }
-
         static public GameObject Create ()
         {
             GameObject instance = new GameObject("station-count-in-list", typeof(RectTransform), typeof(UIStationCountInListTranslation));

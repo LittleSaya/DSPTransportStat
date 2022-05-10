@@ -36,24 +36,16 @@ namespace DSPTransportStat
         public int RelatedItemFilter { get; set; }
 
         /// <summary>
-        /// 对外部窗口组件的引用，便于在查询参数发生变化时通知外部刷新界面内容
-        /// </summary>
-        private UITransportStationsWindow tsw;
-
-        /// <summary>
         /// 创建左侧的查询参数面板
         /// </summary>
-        static public UITransportStationsWindowParameterPanel Create (GameObject goTSWParamPanel, UITransportStationsWindow tsw)
+        static public UITransportStationsWindowParameterPanel Create (GameObject baseGameObject, Action onParameterChangeCallback)
         {
-            UITransportStationsWindowParameterPanel cmpTSWParamPanel = goTSWParamPanel.AddComponent<UITransportStationsWindowParameterPanel>();
-
-            // 传入外层界面的组件，方便在查询参数发生变化时通知外部刷新界面内容
-            cmpTSWParamPanel.tsw = tsw;
+            UITransportStationsWindowParameterPanel cmpTSWParamPanel = baseGameObject.AddComponent<UITransportStationsWindowParameterPanel>();
 
             // 设置默认值
 
             // 设置大小和位置
-            RectTransform cmpRectTransform = goTSWParamPanel.GetComponent<RectTransform>();
+            RectTransform cmpRectTransform = baseGameObject.GetComponent<RectTransform>();
             cmpRectTransform.Zeroize();
             cmpRectTransform.anchorMax = new Vector2(0, 1);
             cmpRectTransform.anchorMin = new Vector2(0, 1);
@@ -62,7 +54,7 @@ namespace DSPTransportStat
 
             // 创建 toggle-in-planet-label
             GameObject goToggleInPlanetLabel = new GameObject("toggle-in-planet-label", typeof(RectTransform), typeof(CanvasRenderer));
-            goToggleInPlanetLabel.transform.SetParent(goTSWParamPanel.transform);
+            goToggleInPlanetLabel.transform.SetParent(baseGameObject.transform);
 
             RectTransform goToggleInPlanetLabel_cmpRectTransform = goToggleInPlanetLabel.GetComponent<RectTransform>();
             goToggleInPlanetLabel_cmpRectTransform.Zeroize();
@@ -78,7 +70,7 @@ namespace DSPTransportStat
             goToggleInPlanetLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ToggleInPlanetLabel;
 
             // 创建 toggle-in-planet
-            GameObject goToggleInPlanet = Instantiate(NativeObjectCache.CheckBox, goTSWParamPanel.transform);
+            GameObject goToggleInPlanet = Instantiate(NativeObjectCache.CheckBox, baseGameObject.transform);
             goToggleInPlanet.name = "toggle-in-planet";
 
             // 比同一行的字符低2个单位，长宽均为20个单位
@@ -86,8 +78,8 @@ namespace DSPTransportStat
             goToggleInPlanet_cmpRectTransform.Zeroize();
             goToggleInPlanet_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goToggleInPlanet_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goToggleInPlanet_cmpRectTransform.offsetMax = new Vector2(100, -12);
-            goToggleInPlanet_cmpRectTransform.offsetMin = new Vector2(80, -32);
+            goToggleInPlanet_cmpRectTransform.offsetMax = new Vector2(135, -12);
+            goToggleInPlanet_cmpRectTransform.offsetMin = new Vector2(115, -32);
 
             Toggle goToggleInPlanet_cmpToggle = goToggleInPlanet.GetComponent<Toggle>();
 
@@ -101,19 +93,19 @@ namespace DSPTransportStat
             goToggleInPlanet_cmpToggle.onValueChanged.AddListener(value =>
             {
                 cmpTSWParamPanel.ToggleInPlanet = value;
-                cmpTSWParamPanel.tsw.OnParameterChange();
+                onParameterChangeCallback.Invoke();
             });
 
             // 创建 toggle-interstellar-label
-            GameObject goToggleInterstellarLabel = Instantiate(goToggleInPlanetLabel, goTSWParamPanel.transform);
+            GameObject goToggleInterstellarLabel = Instantiate(goToggleInPlanetLabel, baseGameObject.transform);
             goToggleInterstellarLabel.name = "toggle-interstellar-label";
 
             RectTransform goToggleInterstellarLabel_cmpRectTransform = goToggleInterstellarLabel.GetComponent<RectTransform>();
             goToggleInterstellarLabel_cmpRectTransform.Zeroize();
             goToggleInterstellarLabel_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goToggleInterstellarLabel_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goToggleInterstellarLabel_cmpRectTransform.offsetMax = new Vector2(10, -35);
-            goToggleInterstellarLabel_cmpRectTransform.offsetMin = new Vector2(10, -35);
+            goToggleInterstellarLabel_cmpRectTransform.offsetMax = new Vector2(10, -58);
+            goToggleInterstellarLabel_cmpRectTransform.offsetMin = new Vector2(10, -58);
 
             Text goToggleInterstellarLabel_cmpText = goToggleInterstellarLabel.GetComponent<Text>();
             goToggleInterstellarLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
@@ -122,7 +114,7 @@ namespace DSPTransportStat
             goToggleInterstellarLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ToggleInterstellarLabel;
 
             // 创建 toggle-interstellar
-            GameObject goToggleInterstellar = Instantiate(goToggleInPlanet, goTSWParamPanel.transform);
+            GameObject goToggleInterstellar = Instantiate(goToggleInPlanet, baseGameObject.transform);
             goToggleInterstellar.name = "toggle-interstellar";
 
             // 比同一行的字符低2个单位，长宽均为20个单位
@@ -130,8 +122,8 @@ namespace DSPTransportStat
             goToggleInterstellar_cmpRectTransform.Zeroize();
             goToggleInterstellar_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goToggleInterstellar_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goToggleInterstellar_cmpRectTransform.offsetMax = new Vector2(100, -37);
-            goToggleInterstellar_cmpRectTransform.offsetMin = new Vector2(80, -57);
+            goToggleInterstellar_cmpRectTransform.offsetMax = new Vector2(135, -60);
+            goToggleInterstellar_cmpRectTransform.offsetMin = new Vector2(115, -80);
 
             Toggle goToggleInterstellar_cmpToggle = goToggleInterstellar.GetComponent<Toggle>();
 
@@ -145,19 +137,19 @@ namespace DSPTransportStat
             goToggleInterstellar_cmpToggle.onValueChanged.AddListener(value =>
             {
                 cmpTSWParamPanel.ToggleInterstellar = value;
-                cmpTSWParamPanel.tsw.OnParameterChange();
+                onParameterChangeCallback.Invoke();
             });
 
             // 创建 toggle-collector-label
-            GameObject goToggleCollectorLabel = Instantiate(goToggleInPlanetLabel, goTSWParamPanel.transform);
+            GameObject goToggleCollectorLabel = Instantiate(goToggleInPlanetLabel, baseGameObject.transform);
             goToggleCollectorLabel.name = "toggle-collector-label";
 
             RectTransform goToggleCollectorLabel_cmpRectTransform = goToggleCollectorLabel.GetComponent<RectTransform>();
             goToggleCollectorLabel_cmpRectTransform.Zeroize();
             goToggleCollectorLabel_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goToggleCollectorLabel_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goToggleCollectorLabel_cmpRectTransform.offsetMax = new Vector2(10, -60);
-            goToggleCollectorLabel_cmpRectTransform.offsetMin = new Vector2(10, -60);
+            goToggleCollectorLabel_cmpRectTransform.offsetMax = new Vector2(10, -106);
+            goToggleCollectorLabel_cmpRectTransform.offsetMin = new Vector2(10, -106);
 
             Text goToggleCollectorLabel_cmpText = goToggleCollectorLabel.GetComponent<Text>();
             goToggleCollectorLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
@@ -166,7 +158,7 @@ namespace DSPTransportStat
             goToggleCollectorLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ToggleCollectorLabel;
 
             // 创建 toggle-collector
-            GameObject goToggleCollector = Instantiate(goToggleInPlanet, goTSWParamPanel.transform);
+            GameObject goToggleCollector = Instantiate(goToggleInPlanet, baseGameObject.transform);
             goToggleCollector.name = "toggle-collector";
 
             // 比同一行的字符低2个单位，长宽均为20个单位
@@ -174,8 +166,8 @@ namespace DSPTransportStat
             goToggleCollector_cmpRectTransform.Zeroize();
             goToggleCollector_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goToggleCollector_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goToggleCollector_cmpRectTransform.offsetMax = new Vector2(100, -62);
-            goToggleCollector_cmpRectTransform.offsetMin = new Vector2(80, -82);
+            goToggleCollector_cmpRectTransform.offsetMax = new Vector2(135, -108);
+            goToggleCollector_cmpRectTransform.offsetMin = new Vector2(115, -128);
 
             Toggle goToggleCollector_cmpToggle = goToggleCollector.GetComponent<Toggle>();
 
@@ -189,19 +181,19 @@ namespace DSPTransportStat
             goToggleCollector_cmpToggle.onValueChanged.AddListener(value =>
             {
                 cmpTSWParamPanel.ToggleCollector = value;
-                cmpTSWParamPanel.tsw.OnParameterChange();
+                onParameterChangeCallback.Invoke();
             });
 
             // 创建 item-filter-label
-            GameObject goItemFilterLabel = Instantiate(goToggleInPlanetLabel, goTSWParamPanel.transform);
+            GameObject goItemFilterLabel = Instantiate(goToggleInPlanetLabel, baseGameObject.transform);
             goItemFilterLabel.name = "item-filter-label";
 
             RectTransform goItemFilterLabel_cmpRectTransform = goItemFilterLabel.GetComponent<RectTransform>();
             goItemFilterLabel_cmpRectTransform.Zeroize();
             goItemFilterLabel_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goItemFilterLabel_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goItemFilterLabel_cmpRectTransform.offsetMax = new Vector2(10, -90);
-            goItemFilterLabel_cmpRectTransform.offsetMin = new Vector2(10, -90);
+            goItemFilterLabel_cmpRectTransform.offsetMax = new Vector2(10, -156);
+            goItemFilterLabel_cmpRectTransform.offsetMin = new Vector2(10, -156);
 
             Text goItemFilterLabel_cmpText = goItemFilterLabel.GetComponent<Text>();
             goItemFilterLabel_cmpText.horizontalOverflow = HorizontalWrapMode.Overflow;
@@ -210,15 +202,15 @@ namespace DSPTransportStat
             goItemFilterLabel_cmpText.text = Strings.TransportStationsWindow.ParameterPanel.ItemFilterLabel;
 
             // 创建 item-filter
-            GameObject goItemFilter = Instantiate(ReassembledObjectCache.GOCircularItemFilterButton, goTSWParamPanel.transform);
+            GameObject goItemFilter = Instantiate(ReassembledObjectCache.GOCircularItemFilterButton, baseGameObject.transform);
             goItemFilter.name = "item-filter";
 
             RectTransform goItemFilter_cmpRectTransform = goItemFilter.GetComponent<RectTransform>();
             goItemFilter_cmpRectTransform.Zeroize();
             goItemFilter_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goItemFilter_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goItemFilter_cmpRectTransform.offsetMax = new Vector2(120, -85);
-            goItemFilter_cmpRectTransform.offsetMin = new Vector2(80, -125);
+            goItemFilter_cmpRectTransform.offsetMax = new Vector2(135, -150);
+            goItemFilter_cmpRectTransform.offsetMin = new Vector2(95, -190);
 
             Image goItemFilter_childBg_cmpImage = goItemFilter.transform.Find("bg").GetComponent<Image>();
 
@@ -236,7 +228,7 @@ namespace DSPTransportStat
                 {
                     if (item == null)
                     {
-                        goItemFilter_childBg_cmpImage.sprite = ResourceCache.Round54pxSlice;
+                        goItemFilter_childBg_cmpImage.sprite = ResourceCache.SpriteRound54pxSlice;
                         cmpTSWParamPanel.RelatedItemFilter = Constants.NONE_ITEM_ID;
                         goItemFilterClear.SetActive(false);
                     }
@@ -246,31 +238,27 @@ namespace DSPTransportStat
                         cmpTSWParamPanel.RelatedItemFilter = item.ID;
                         goItemFilterClear.SetActive(true);
                     }
-                    cmpTSWParamPanel.tsw.OnParameterChange();
+                    onParameterChangeCallback.Invoke();
                 });
             });
 
             // 创建 item-filter-clear
-            goItemFilterClear = Instantiate(ReassembledObjectCache.GOTextButton, goTSWParamPanel.transform);
-            goItemFilterClear.name = "item-filter-clear";
+            goItemFilterClear = UIUtility.CreateImageButton("item-filter-clear", ResourceCache.SpriteXIcon, () =>
+            {
+                goItemFilter_childBg_cmpImage.sprite = ResourceCache.SpriteRound54pxSlice;
+                cmpTSWParamPanel.RelatedItemFilter = Constants.NONE_ITEM_ID;
+                onParameterChangeCallback.Invoke();
+                goItemFilterClear.SetActive(false);
+            });
+            goItemFilterClear.transform.SetParent(baseGameObject.transform);
             goItemFilterClear.SetActive(false);
 
             RectTransform goItemFilterClear_cmpRectTransform = goItemFilterClear.GetComponent<RectTransform>();
             goItemFilterClear_cmpRectTransform.Zeroize();
             goItemFilterClear_cmpRectTransform.anchorMax = new Vector2(0, 1);
             goItemFilterClear_cmpRectTransform.anchorMin = new Vector2(0, 1);
-            goItemFilterClear_cmpRectTransform.offsetMax = new Vector2(140, -85);
-            goItemFilterClear_cmpRectTransform.offsetMin = new Vector2(120, -105);
-
-            goItemFilterClear.transform.Find("button-text").GetComponent<Text>().text = "X";
-
-            goItemFilterClear.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                goItemFilter_childBg_cmpImage.sprite = ResourceCache.Round54pxSlice;
-                cmpTSWParamPanel.RelatedItemFilter = Constants.NONE_ITEM_ID;
-                cmpTSWParamPanel.tsw.OnParameterChange();
-                goItemFilterClear.SetActive(false);
-            });
+            goItemFilterClear_cmpRectTransform.offsetMax = new Vector2(140, -145);
+            goItemFilterClear_cmpRectTransform.offsetMin = new Vector2(125, -160);
 
             return cmpTSWParamPanel;
         }
