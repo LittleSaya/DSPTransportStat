@@ -11,7 +11,7 @@ Great thanks to authors of LSTM and Unity Explorer.
 - Filtering though station type, location, name and items.
 - Sorting by station location and name, ascending or descending.
 
-![Usage](/Doc/brief.jpg "Usage")
+![Usage](https://github.com/LittleSaya/DSPTransportStat/blob/master/Doc/brief.jpg "Usage")
 
 ## Compatibility
 
