@@ -1,3 +1,4 @@
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace DSPTransportStat
     /// </summary>
     static class Hacking
     {
+        static private UIStationWindow currentStationWindow = null;
+
         /// <summary>
         /// 打开任意一个物流运输站的站点窗口
         /// </summary>
@@ -48,10 +51,8 @@ namespace DSPTransportStat
                     {
                         win.nameInput.onValueChanged.AddListener((s) => typeof(UIStationWindow).GetMethod("OnNameInputSubmit").Invoke(win, new object[1] { s }));
                         win.nameInput.onEndEdit.AddListener((s) => typeof(UIStationWindow).GetMethod("OnNameInputSubmit").Invoke(win, new object[1] { s }));
-                        win.player.onIntendToTransferItems += (_itemId, _itemCount, _itemInc) =>
-                        {
-                            typeof(UIStationWindow).GetMethod("OnPlayerIntendToTransferItems").Invoke(win, new object[3] { _itemId, _itemCount, _itemInc });
-                        };
+                        currentStationWindow = win;
+                        win.player.onIntendToTransferItems += OnPlayerIntendToTransferItems;
                     }
                     win.transform.SetAsLastSibling();
                 }
@@ -60,6 +61,20 @@ namespace DSPTransportStat
                     Plugin.Instance.Logger.LogError(message);
                 }
             }
+        }
+
+        [HarmonyPrefix, HarmonyPatch(typeof(UIStationWindow), "_OnClose")]
+        static void UIStationWindow__OnClose_Prefix ()
+        {
+            if (currentStationWindow.player != null)
+            {
+                currentStationWindow.player.onIntendToTransferItems -= OnPlayerIntendToTransferItems;
+            }
+        }
+
+        static private void OnPlayerIntendToTransferItems (int _itemId, int _itemCount, int _itemInc)
+        {
+            typeof(UIStationWindow).GetMethod("OnPlayerIntendToTransferItems").Invoke(currentStationWindow, new object[3] { _itemId, _itemCount, _itemInc });
         }
     }
 }

@@ -15,6 +15,14 @@ Great thanks to authors of LSTM and Unity Explorer.
 
 ## Compatibility
 
+### 0.0.8
+
+Game Version: Early Access 0.9.25.12201
+
+BepInEx: 5.4.19
+
+DotNet: .NET Framework 4.6
+
 ### 0.0.1 ~ 0.0.7
 
 Game Version: Early Access 0.9.25.12077
@@ -26,6 +34,7 @@ DotNet: .NET Framework 4.6
 ## Known Issues
 
 - Causing null pointer exception when used with LSTM.
+- The station window can no longer be opend by Ctrl+F after loading another saved game without restart the application.
 
 ## Todo List
 
@@ -34,6 +43,10 @@ Ideas are welcome :-)
 - ~~Add small bar graph to each item slot (just like those in station panel)~~(Replaced by a button which can open the station window)
 
 ## Change log
+
+### 0.0.7 -> 0.0.8
+
+- Fix error when picking up items in player inventory after closing the station window opened from station list.
 
 ### 0.0.6 -> 0.0.7
 

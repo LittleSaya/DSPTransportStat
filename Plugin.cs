@@ -16,7 +16,7 @@ namespace DSPTransportStat
     {
         public const string __NAME__ = "DSPTransportStat";
         public const string __GUID__ = "IndexOutOfRange.DSPTransportStat";
-        public const string __VERSION__ = "0.0.7";
+        public const string __VERSION__ = "0.0.8";
 
         static public Plugin Instance { get; set; } = null;
 
@@ -37,6 +37,7 @@ namespace DSPTransportStat
 
             Harmony harmony = new Harmony(__GUID__);
             harmony.PatchAll(typeof(Patch));
+            harmony.PatchAll(typeof(Hacking));
         }
 
         private void Update ()
