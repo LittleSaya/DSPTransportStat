@@ -66,7 +66,7 @@ namespace DSPTransportStat
         [HarmonyPrefix, HarmonyPatch(typeof(UIStationWindow), "_OnClose")]
         static void UIStationWindow__OnClose_Prefix ()
         {
-            if (currentStationWindow.player != null)
+            if (currentStationWindow != null && currentStationWindow.player != null)
             {
                 currentStationWindow.player.onIntendToTransferItems -= OnPlayerIntendToTransferItems;
             }

@@ -15,7 +15,7 @@ Great thanks to authors of LSTM and Unity Explorer.
 
 ## Compatibility
 
-### 0.0.8
+### 0.0.8 ~ 0.0.9
 
 Game Version: Early Access 0.9.25.12201
 
@@ -43,6 +43,10 @@ Ideas are welcome :-)
 - ~~Add small bar graph to each item slot (just like those in station panel)~~(Replaced by a button which can open the station window)
 
 ## Change log
+
+### 0.0.8 -> 0.0.9
+
+- Fix null pointer exception after close station window
 
 ### 0.0.7 -> 0.0.8
 
