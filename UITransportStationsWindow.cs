@@ -699,10 +699,10 @@ namespace DSPTransportStat
         private void Update ()
         {
             ComputeTransportStationsWindow_VirtualScroll();
-            for (int i = 0; i < uiTransportStationsEntries.Length; ++i)
-            {
-                uiTransportStationsEntries[i].Update();
-            }
+            //for (int i = 0; i < uiTransportStationsEntries.Length; ++i)
+            //{
+            //    uiTransportStationsEntries[i].Update();
+            //}
         }
 
         public void OnPointerEnter (PointerEventData eventData)

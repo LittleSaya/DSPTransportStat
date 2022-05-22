@@ -64,10 +64,11 @@ namespace DSPTransportStat
 
         public void Update ()
         {
-            if (StationComponent == null)
-            {
-                return;
-            }
+            // 由外层的 UITransportStationsWindow 来控制传入的 StationComponent
+            //if (StationComponent == null || StationComponent.entityId == 0)
+            //{
+            //    return;
+            //}
 
             Star.text = StarData.displayName;
 

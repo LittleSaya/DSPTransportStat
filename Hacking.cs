@@ -2,6 +2,7 @@ using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -74,7 +75,8 @@ namespace DSPTransportStat
 
         static private void OnPlayerIntendToTransferItems (int _itemId, int _itemCount, int _itemInc)
         {
-            typeof(UIStationWindow).GetMethod("OnPlayerIntendToTransferItems").Invoke(currentStationWindow, new object[3] { _itemId, _itemCount, _itemInc });
+            MethodInfo method = typeof(UIStationWindow).GetMethod("OnPlayerIntendToTransferItems", BindingFlags.NonPublic | BindingFlags.Instance);
+            method.Invoke(currentStationWindow, new object[3] { _itemId, _itemCount, _itemInc });
         }
     }
 }

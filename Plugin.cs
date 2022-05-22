@@ -16,7 +16,7 @@ namespace DSPTransportStat
     {
         public const string __NAME__ = "DSPTransportStat";
         public const string __GUID__ = "IndexOutOfRange.DSPTransportStat";
-        public const string __VERSION__ = "0.0.9";
+        public const string __VERSION__ = "0.0.10";
 
         static public Plugin Instance { get; set; } = null;
 
